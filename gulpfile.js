@@ -14,17 +14,17 @@ gulp.task('jade', function(){
 })
 
 gulp.task('stylus', function () {
-  return gulp.src('./css/*.stylus')
-    .pipe(stylus())
-    .pipe(gulp.dest('./dist'))
-    .pipe(browserSync.stream());
+  gulp.src('./css/*.stylus')
+  .pipe(stylus())
+  .pipe(gulp.dest('./dist'))
+  .pipe(browserSync.stream());
 });
 
 gulp.task('sync', function() {
   browserSync.init({
-      server: {
-          baseDir: "./dist"
-      }
+    server: {
+      baseDir: "./dist"
+    }
   });
 });
 
