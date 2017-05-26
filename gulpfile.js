@@ -20,6 +20,12 @@ gulp.task('stylus', function () {
   .pipe(browserSync.stream());
 });
 
+gulp.task('js', function () {
+  gulp.src('./scripts/*.js')
+  .pipe(gulp.dest('./dist'))
+  .pipe(browserSync.stream());
+});
+
 gulp.task('sync', function() {
   browserSync.init({
     server: {
@@ -28,9 +34,9 @@ gulp.task('sync', function() {
   });
 });
 
-gulp.task('default', ['jade', 'stylus', 'sync'], function() {
+gulp.task('default', ['jade', 'stylus', 'js', 'sync'], function() {
   gulp.watch('./src/*.jade', ['jade']);
   gulp.watch('./css/*.stylus', ['stylus']);
-  gulp.watch('./scripts/*.js');
+  gulp.watch('./scripts/*.js', ['js']);
   gulp.watch('*.html').on('change', reload);
 });
