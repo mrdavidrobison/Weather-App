@@ -1,11 +1,28 @@
-html 
-  link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
-  link(href='index.css', rel='stylesheet')
-  h1 City Weather App
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(href='index.css', rel='stylesheet')
+    h1 City Weather App
+    body
+      .weatherIcon
+      .city City:
+      .country Country:
+      .description
+      .temp
+      .humidity
+      .visibility
+      .wind
+      .sunrise
+      .sunset
   
-  #city City
-  #state State
-  body
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
-    script(type='text/javascript', src='index.js')
+      p
+        | Based on 
+        a(href='https://dribbble.com/shots/2097042-Widget-Weather', target='_blank') Dribbble
+        |  by kylor
+
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+      script(type='text/javascript', src='index.js')
