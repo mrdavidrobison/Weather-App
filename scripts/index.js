@@ -47,27 +47,28 @@ $(document).ready(function() {
         // Substituting class id with jQuery actions.
         $(".weatherIcon").html(weatherIcon);
         if (weatherIcon === "Clear"){
-          $(".weatherIcon").remove('.weatherIcon').add('.icon.sunny.sun.rays');
-        } else if (weatherIcon == "rain"){
-          $(".weatherIcon").addClass('.icon.rainy.cloud.rain').removeClass('.weatherIcon');
-        } else if (weatherIcon == "snow"){
-          $(".weatherIcon").addClass('.icon.flurries.cloud.snow.flake.flake').removeClass('.weatherIcon');
-        } else if (weatherIcon == "clouds"){
-          $(".weatherIcon").addClass('.icon.cloudy.cloud.cloud').removeClass('.weatherIcon');
-        } else if (weatherIcon == "thunder"){
-          $(".weatherIcon").addClass('.icon.thunder-storm.cloud.lightning.bolt.bolt').removeClass('.weatherIcon');
-        } else if (weatherIcon == "showers"){
-          $(".weatherIcon").addClass('.icon.sun-shower.cloud.sun.rays.rain').removeClass('.weatherIcon');
+          $(".weatherIcon").replaceWith('<div class="icon sunny"><div class="sun"><div class="rays"></div></div></div>');
+          $('body').css("background-image", "url('https://upload.wikimedia.org/wikipedia/commons/5/56/Clear_sky_over_Riga%2C_2008.jpg')");
+          $('.sun').css("background", "#FFFF00");
+        } else if (weatherIcon === "Rain"){
+          $(".weatherIcon").replaceWith('<div class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>');
+        } else if (weatherIcon = "Snow"){
+          $(".weatherIcon").replaceWith('<div class="icon flurries"><div class="cloud"></div><div class="snow"><div class="flake"></div><div class="flake"></div></div></div>');
+        } else if (weatherIcon = "Clouds"){
+          $(".weatherIcon").replaceWith('<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>');
+        } else if (weatherIcon = "Thunder"){
+          $(".weatherIcon").replaceWith('<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>');
+        } else if (weatherIcon = "Showers"){
+          $(".weatherIcon").replaceWith('<div class="icon sun-shower"><div class="cloud"></div><div class="sun">    <div class="rays"></div></div><div class="rain"></div></div>');
         }
 
-        $(".city").html(city);
-        $(".country").html(country);
-        $(".description").html(description);
+        
+        $(".city").html(city + ", " + country);
         $(".temp").html(temp);
-        $(".humidity").html(humidity);
-        $(".wind").html(wind);
-        $(".sunrise").html(sunrise);
-        $(".sunset").html(sunset);
+        $(".humidity").html("Humidity: " + humidity);
+        $(".wind").html("Windspeed: " + wind);
+        $(".sunrise").html("Sunrise: " + sunrise);
+        $(".sunset").html("Sunset: " + sunset);
       })
 
     })

@@ -1,20 +1,41 @@
-html
-  box-sizing border-box
-
+html { box-sizing: border-box; }
 html *,
 html *:before,
-html *:after
-  box-sizing inherit
+html *:after { box-sizing: inherit; }
 
 body {
   max-width: 42em;
   padding: 2em;
-  margin: 0 auto; 
-  color: white;
+  margin: 0 auto;
+  color: #161616;
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  background-color: black;
+  background-color: currentColor;
 }
+
+.details {
+  color: white;
+  font-size: 1.5em;
+  columns: 2;
+  letter-spacing: .1em;
+  word-spacing: .4em;
+  text-align: left;
+}
+
+h1 {
+  margin-bottom: 1.375em;
+  color: #fff;
+  font-weight: 100;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+p,
+  a {
+    color: rgba(255,255,255,0.3);
+    font-size: small;
+    text-decoration: white;
+  }
+p { margin: 1.375rem 0; }
 
 .icon {
   position: relative;
@@ -23,6 +44,7 @@ body {
   height: 10em;
   font-size: 1em; /* control icon size here */
 }
+
 .cloud {
   position: absolute;
   z-index: 1;
@@ -228,6 +250,7 @@ body {
   opacity: 0.4;
   animation: spin 16s linear infinite reverse;
 }
+
 
 /* Animations */ 
 
