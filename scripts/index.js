@@ -19,8 +19,9 @@ $(document).ready(function() {
         var city = data.name;
         var country = data.sys.country; 
         var description = data.weather[0].description;
-        var temp = Math.floor((data.main.temp)*(9/5)-459.67) + " &degF";
-        var humidity = data.main.humidity + " &#37";
+        var tempF = Math.floor((data.main.temp)*(9/5)-459.67) + " &degF";
+        var tempC = parseFloat((tempF - 32)*(5/9)) + " &degC"; 
+        var humidity = data.main.humidity + "&#37";
         var visibility = data.visibility;
         var wind = data.wind.speed + " mph";
         
@@ -52,25 +53,38 @@ $(document).ready(function() {
           $('.sun').css("background", "#FFFF00");
         } else if (weatherIcon === "Rain"){
           $(".weatherIcon").replaceWith('<div class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>');
+          $('body').css("background-image", "url('https://upload.wikimedia.org/wikipedia/commons/5/58/Rain-drops.jpg')");
         } else if (weatherIcon = "Snow"){
           $(".weatherIcon").replaceWith('<div class="icon flurries"><div class="cloud"></div><div class="snow"><div class="flake"></div><div class="flake"></div></div></div>');
-        } else if (weatherIcon = "Clouds"){
+          $('body').css("background-image", "url('http://www.publicdomainpictures.net/pictures/130000/velka/winter-snow-background.jpg')");
+          $('h1').css("color: black", "font-weight: 10000");
+          $('.mainDiv').css("color: black", "background-color: black");
+        } else if (weatherIcon = "Clear"){
           $(".weatherIcon").replaceWith('<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>');
+          $('body').css("background-image", "url('http://www.publicdomainpictures.net/pictures/30000/velka/white-clouds-on-dark-sky.jpg')");
         } else if (weatherIcon = "Thunder"){
           $(".weatherIcon").replaceWith('<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>');
+          $('body').css("background-image", "url('http://www.publicdomainpictures.net/pictures/100000/velka/lightning-bolt.jpg')");
         } else if (weatherIcon = "Showers"){
-          $(".weatherIcon").replaceWith('<div class="icon sun-shower"><div class="cloud"></div><div class="sun">    <div class="rays"></div></div><div class="rain"></div></div>');
-        }
-
-        
+          $(".weatherIcon").replaceWith('<div class="icon sun-shower"><div class="cloud"></div><div class="sun"><div class="rays"></div></div><div class="rain"></div></div>');
+          $('body').css("background-image", "url('https://static.pexels.com/photos/639/clouds-rainy-rain-asia.jpg')");
+        }   
+        $(".description").html(description);  
         $(".city").html(city + ", " + country);
-        $(".temp").html(temp);
+        $(".tempF").html(tempF);
+        $(".tempButton").click(function(){
+          $(".tempF").html(tempC);
+          $(".tempButton").replaceWith('<div class="tempCButton">&degF</div>');
+        });
+        $(".tempCButton").click(function(){
+          $(".tempF").html(tempF);
+          $(".tempCButton").replaceWith('<div class="tempButton">&degC</div>');
+        });
         $(".humidity").html("Humidity: " + humidity);
         $(".wind").html("Windspeed: " + wind);
         $(".sunrise").html("Sunrise: " + sunrise);
         $(".sunset").html("Sunset: " + sunset);
       })
-
     })
   }
 });
