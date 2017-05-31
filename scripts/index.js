@@ -3,6 +3,7 @@ $(document).ready(function() {
   var long;
   var lat;
   var temp;
+  var tempSwap=true;  
 
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -20,7 +21,7 @@ $(document).ready(function() {
         var country = data.sys.country; 
         var description = data.weather[0].description;
         var tempF = Math.floor((data.main.temp)*(9/5)-459.67) + " &degF";
-        var tempC = parseFloat((tempF - 32)*(5/9)) + " &degC"; 
+        var tempC = Math.floor((data.main.temp)- 273.15) + " &degC"; 
         var humidity = data.main.humidity + "&#37";
         var visibility = data.visibility;
         var wind = data.wind.speed + " mph";
@@ -73,12 +74,15 @@ $(document).ready(function() {
         $(".city").html(city + ", " + country);
         $(".tempF").html(tempF);
         $(".tempButton").click(function(){
-          $(".tempF").html(tempC);
-          $(".tempButton").replaceWith('<div class="tempCButton">&degF</div>');
-        });
-        $(".tempCButton").click(function(){
-          $(".tempF").html(tempF);
-          $(".tempCButton").replaceWith('<div class="tempButton">&degC</div>');
+          if (tempSwap===true){
+            $(".tempF").html(tempC);
+            tempSwap=false;
+            $(".tempButton").html("&degF");
+          } else {
+            $(".tempF").html(tempF);
+            tempSwap=true;
+            $(".tempButton").html("&degC"); 
+          };
         });
         $(".humidity").html("Humidity: " + humidity);
         $(".wind").html("Windspeed: " + wind);
