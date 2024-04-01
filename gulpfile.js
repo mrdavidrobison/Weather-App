@@ -35,8 +35,8 @@ gulp.task('sync', function() {
 // Default task to compile all assets and start BrowserSync
 gulp.task('default', gulp.series(['compile-jade', 'compile-stylus', 'copy-js', 'sync'], function(done) {
   // Watch for changes in source files and trigger corresponding tasks
-  gulp.watch('./src/**/*.jade', gulp.series('compile-jade'));
-  gulp.watch('./src/css/**/*.styl', gulp.series('compile-stylus'));
-  gulp.watch('./src/scripts/**/*.js', gulp.series('copy-js'));
+  watch('./src/**/*.jade', gulp.series('compile-jade'));
+  watch('./src/css/**/*.styl', gulp.series('compile-stylus'));
+  watch('./src/scripts/**/*.js', gulp.series('copy-js'));
   done();
 }));
