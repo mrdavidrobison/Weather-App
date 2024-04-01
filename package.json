@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/mrdavidrobison/Weather-App#readme",
   "devDependencies": {
-    "browser-sync": "^2.18.12",
-    "gulp": "^3.9.1",
+    "browser-sync": "^3.0.2",
+    "gulp": "^5.0.0",
     "gulp-jade": "^1.1.0",
-    "gulp-stylus": "^2.6.0"
+    "gulp-stylus": "^2.5.0"
   }
 }

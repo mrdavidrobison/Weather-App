@@ -1,41 +1,40 @@
+doctype html
 html
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title City Weather App
     link(href='https://fonts.googleapis.com/css?family=Roboto:100,300,700,400', rel='stylesheet', type='text/css')
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
-    link(href='index.css', rel='stylesheet')
+    link(href='css/index.css', rel='stylesheet')
+  body
     h1 City Weather App
-    br
-    body
-      .mainDiv
-        .weatherIcon
+    .mainDiv
+      .weatherIcon
+      br
+      br
+      br
+      .description
+      br
+      br
+      br
+      .details
+        .humidity
+        .wind
+        .sunrise
+        .sunset     
         br
+        br  
+        .details2
+          .city
+          .tempF 
+          .tempButton &deg;C
         br
-        br
-        .description
-        br
-        br
-        br
-        .details
-          .humidity
-          .wind
-          .sunrise
-          .sunset     
-          br
-          br  
-          .details2
-            .city
-            .tempF 
-            .tempButton &degC
-          br
-      p
-        | Based on 
-        a(href='https://dribbble.com/shots/2097042-Widget-Weather', target='_blank') Dribbble
-        |  by kylor
+    p
+      a(href='https://dribbble.com/shots/2097042-Widget-Weather', target='_blank')
 
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
-      script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js")
-      script(type='text/javascript', src='index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js")
+    script(src='scripts/index.js')
