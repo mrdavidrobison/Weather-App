@@ -1,5 +1,5 @@
 # Weather-App
 Weather App that displays local weather based on location.
 
-`npm i`
-`npm i gulp`
+#1. `npm i`
+#2. `npm i gulp`
